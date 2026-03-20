@@ -29,7 +29,7 @@ from core.scoring.structuring_scorer import score_structuring, StructuringResult
 from core.scoring.dormancy_scorer    import score_dormancy,    DormancyResult
 
 # Rupali's interface — called via interfaces.py
-from ml.interfaces import score_profile_mismatch, get_rolling_features
+from interfaces import score_profile_mismatch, get_rolling_features
 
 log = logging.getLogger(__name__)
 

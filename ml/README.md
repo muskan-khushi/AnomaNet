@@ -50,7 +50,7 @@ Ratnesh's transaction-service
   - Enriches with account KYC from PostgreSQL
   - Writes transaction record to PostgreSQL
   - Writes TRANSFERRED_TO edge to Neo4j
-  - Publishes EnrichmentEvent to ml.scoring.queue
+  - Publishes EnrichmentEvent to scoring.queue
         │
         ▼
 Muskan's Kafka consumer (core/kafka/consumer.py)
@@ -284,7 +284,7 @@ If her module is not ready, the fallback `/ml/explain` endpoint runs using `inte
 
 ## Part 7 — Kafka Consumer
 
-**`core/kafka/consumer.py`** — consumes `ml.scoring.queue`, runs the full pipeline per message, publishes `AlertEvent` to `alerts.generated`.
+**`core/kafka/consumer.py`** — consumes `scoring.queue`, runs the full pipeline per message, publishes `AlertEvent` to `alerts.generated`.
 
 Per message:
 1. Deserialise EnrichmentEvent from Ratnesh's transaction-service
@@ -547,7 +547,7 @@ ml/
 │   │   ├── dormancy_scorer.py      state machine + logistic regression
 │   │   └── anoma_score.py          weighted composite aggregator
 │   ├── kafka/
-│   │   └── consumer.py             ml.scoring.queue → pipeline → alerts.generated
+│   │   └── consumer.py             scoring.queue → pipeline → alerts.generated
 │   ├── gnn/                        🔲 not built yet — GraphSAGE encoder
 │   └── models/                     .pkl files written here after training
 │       ├── isolation_forest_layering.pkl

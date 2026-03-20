@@ -184,9 +184,9 @@ services:
     command: |
       "
       kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic raw.transactions --partitions 3 --replication-factor 1
-      kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic ml.scoring.queue --partitions 3 --replication-factor 1
+      kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic scoring.queue --partitions 3 --replication-factor 1
       kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic alerts.generated --partitions 3 --replication-factor 1
-      kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic ml.scoring.dlq --partitions 1 --replication-factor 1
+      kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic scoring.dlq --partitions 1 --replication-factor 1
       echo 'All Kafka topics created.'
       "
     networks:

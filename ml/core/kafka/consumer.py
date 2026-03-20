@@ -3,9 +3,9 @@ ml/core/kafka/consumer.py
 
 Kafka consumer for the ML scoring pipeline.
 
-Consumes:  ml.scoring.queue     (EnrichmentEvents from Ratnesh's transaction-service)
+Consumes:  scoring.queue     (EnrichmentEvents from Ratnesh's transaction-service)
 Publishes: alerts.generated     (AlertEvents when AnomaScore >= threshold)
-Publishes: ml.scoring.dlq       (dead-letter queue for failed messages)
+Publishes: scoring.dlq       (dead-letter queue for failed messages)
 
 Flow per message:
   1. Deserialise EnrichmentEvent
@@ -35,9 +35,9 @@ from typing import Optional
 log = logging.getLogger(__name__)
 
 KAFKA_SERVERS      = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
-SCORING_TOPIC      = "ml.scoring.queue"
+SCORING_TOPIC      = "scoring.queue"
 ALERTS_TOPIC       = "alerts.generated"
-DLQ_TOPIC          = "ml.scoring.dlq"
+DLQ_TOPIC          = "scoring.dlq"
 CONSUMER_GROUP     = "anomanet-ml-scorer"
 MAX_POLL_RECORDS   = 10
 SESSION_TIMEOUT_MS = 30_000

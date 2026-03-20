@@ -5,9 +5,9 @@ ml/interfaces.py
 This is the ONLY file Muskan imports from Rupali's codebase.
 
 Muskan imports:
-    from ml.interfaces import score_profile_mismatch
-    from ml.interfaces import get_rolling_features
-    from ml.interfaces import get_explanation
+    from interfaces import score_profile_mismatch
+    from interfaces import get_rolling_features
+    from interfaces import get_explanation
 
 How this works:
     This file tries to import Rupali's real implementations.
@@ -32,7 +32,7 @@ log = logging.getLogger(__name__)
 # ── score_profile_mismatch ────────────────────────────────────────────────────
 
 try:
-    from ml.modules.profile_mismatch.inference import score as _real_pm_score
+    from modules.profile_mismatch.inference import score as _real_pm_score
     _PM_REAL = True
     log.info("profile_mismatch module loaded")
 except ImportError:
@@ -61,7 +61,7 @@ def score_profile_mismatch(account_id: str) -> float:
 # ── get_rolling_features ──────────────────────────────────────────────────────
 
 try:
-    from ml.shared.feature_store.redis_store import get_rolling_features as _real_features
+    from shared.feature_store.redis_store import get_rolling_features as _real_features
     _FEATURES_REAL = True
     log.info("feature_store module loaded")
 except ImportError:
@@ -106,7 +106,7 @@ def get_rolling_features(account_id: str) -> dict:
 # ── get_explanation ───────────────────────────────────────────────────────────
 
 try:
-    from ml.modules.explainability.generator import get_explanation as _real_explanation
+    from modules.explainability.generator import get_explanation as _real_explanation
     _EXPLAIN_REAL = True
     log.info("explainability module loaded")
 except ImportError:

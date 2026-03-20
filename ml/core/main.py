@@ -144,7 +144,7 @@ app.add_middleware(
 
 # ── Plug in Rupali's explainability router (one line) ────────────────────────
 try:
-    from ml.modules.explainability.router import explain_router
+    from modules.explainability.router import explain_router
     app.include_router(explain_router)
     log.info("Explainability router registered")
 except ImportError:
@@ -400,7 +400,7 @@ async def explain_fallback(body: dict):
     Fallback explainability endpoint.
     Replaced automatically when Rupali's explain_router loads.
     """
-    from ml.interfaces import get_explanation
+    from interfaces import get_explanation
     alert_id       = body.get("alert_id", "unknown")
     score_breakdown = body.get("score_breakdown", {})
     explanation    = get_explanation(alert_id, score_breakdown)
