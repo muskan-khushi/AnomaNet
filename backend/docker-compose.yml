@@ -23,7 +23,7 @@ services:
     image: neo4j:5-community
     container_name: anomanet-neo4j
     environment:
-      NEO4J_AUTH: neo4j/anomanet123
+      NEO4J_AUTH: neo4j/anomanet2024
     ports:
       - "7474:7474"
       - "7687:7687"
