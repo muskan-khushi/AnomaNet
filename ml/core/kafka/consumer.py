@@ -35,7 +35,7 @@ from typing import Optional
 log = logging.getLogger(__name__)
 
 KAFKA_SERVERS      = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
-SCORING_TOPIC      = "scoring.queue"
+SCORING_TOPIC      = "ml.scoring.queue"
 ALERTS_TOPIC       = "alerts.generated"
 DLQ_TOPIC          = "scoring.dlq"
 CONSUMER_GROUP     = "anomanet-ml-scorer"
