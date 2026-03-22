@@ -2,7 +2,6 @@
 ml/modules/profile_mismatch/autoencoder.py
 
 PyTorch LSTM Autoencoder for customer profile mismatch detection.
-Owner: Rupali (implemented here for solo run)
 
 Architecture:
     Encoder: LSTM(input_size=7, hidden=64, layers=2) → latent vector (64-dim)

@@ -244,7 +244,7 @@ def main():
         sys.exit(1)
 
     # Filter to clean (non-fraud) transactions only for autoencoder training
-    fraud_tx_ids = set(labels_df[labels_df["is_fraud"] == True]["transaction_id"])
+    fraud_tx_ids = set(labels_df[labels_df["is_fraud"] == True]["id"])
     log.info("Total transactions: %d | Fraud: %d | Clean: %d",
              len(txns_df), len(fraud_tx_ids),
              len(txns_df) - len(fraud_tx_ids))
