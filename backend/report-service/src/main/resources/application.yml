@@ -1,0 +1,31 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: report-service
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5433/anomanet}
+    username: ${POSTGRES_USER:anomanet}
+    password: ${POSTGRES_PASSWORD:anomanet123}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+
+services:
+  case-service: ${CASE_SERVICE_URL:http://localhost:8083}
+  alert-service: ${ALERT_SERVICE_URL:http://localhost:8082}
+  transaction-service: ${TRANSACTION_SERVICE_URL:http://localhost:8081}
+  ml-service: ${ML_SERVICE_URL:http://localhost:8000}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+
+logging:
+  level:
+    com.anomanet: INFO
