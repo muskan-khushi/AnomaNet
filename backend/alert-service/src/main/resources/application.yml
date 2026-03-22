@@ -5,7 +5,7 @@ spring:
   application:
     name: alert-service
   datasource:
-    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5433/anomanet}
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/anomanet}
     username: ${POSTGRES_USER:anomanet}
     password: ${POSTGRES_PASSWORD:anomanet123}
     driver-class-name: org.postgresql.Driver
